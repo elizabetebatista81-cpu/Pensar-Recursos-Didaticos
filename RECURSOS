@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiais de Alfabetização | Aprenda com Leveza</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #6C63FF;
+      --primary-dark: #4B44CC;
+      --secondary: #FF6584;
+      --accent: #43C59E;
+      --bg-light: #F9F7FF;
+      --bg-dark: #1E1B3A;
+      --text-dark: #2D2B55;
+      --text-light: #6B6894;
+      --white: #FFFFFF;
+      --yellow: #FFD166;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.8;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #2D2B55 100%);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 350px;
+      height: 350px;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.08;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -60px;
+      width: 300px;
+      height: 300px;
+      background: var(--secondary);
+      border-radius: 50%;
+      opacity: 0.08;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      line-height: 1.25;
+      max-width: 820px;
+      margin: 0 auto 24px;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      max-width: 650px;
+      margin: 0 auto 40px;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 18px 50px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(255,101,132,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(255,101,132,0.5);
+    }
+
+    .hero-sub {
+      margin-top: 16px;
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ===================== SECTIONS ===================== */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1.3;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 17px;
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+
+    /* ===================== DOR ===================== */
+    .dor {
+      background: var(--bg-light);
+    }
+
+    .dor blockquote {
+      border-left: 4px solid var(--secondary);
+      padding: 20px 28px;
+      background: var(--white);
+      border-radius: 0 12px 12px 0;
+      margin: 32px 0;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--text-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    /* ===================== AUTORIDADE ===================== */
+    .autoridade {
+      background: var(--white);
+    }
+
+    .autoridade-card {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      background: var(--bg-light);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 40px;
+      border: 1px solid rgba(108,99,255,0.1);
+    }
+
+    .foto-placeholder {
+      width: 140px;
+      height: 140px;
+      min-width: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 13px;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .autoridade-texto h3 {
+      font-size: 22px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .autoridade-texto .titulos {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .selos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .selo {
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+    }
+
+    .selo.accent {
+      background: var(--accent);
+    }
+
+    .selo.secondary {
+      background: var(--secondary);
+    }
+
+    /* ===================== SOLUÇÃO ===================== */
+    .solucao {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .solucao h2 {
+      color: var(--white);
+    }
+
+    .solucao p {
+      color: rgba(255,255,255,0.85);
+      max-width: 700px;
+      margin: 0 auto 18px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+      text-align: left;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 28px 24px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .card h4 {
+      font-size: 17px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin: 0;
+    }
+
+    /* ===================== BENEFÍCIOS ===================== */
+    .beneficios {
+      background: var(--white);
+    }
+
+    .beneficios-lista {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .beneficio-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid rgba(108,99,255,0.1);
+      background: var(--bg-light);
+      transition: box-shadow 0.2s;
+    }
+
+    .beneficio-item:hover {
+      box-shadow: 0 6px 24px rgba(108,99,255,0.1);
+    }
+
+    .beneficio-num {
+      min-width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .beneficio-item h4 {
+      font-size: 17px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .beneficio-item p {
+      font-size: 15px;
+      margin: 0;
+      color: var(--text-light);
+    }
+
+    /* ===================== DEPOIMENTOS ===================== */
+    .depoimentos {
+      background: var(--bg-light);
+    }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .depoimento-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+      border-top: 4px solid var(--primary);
+    }
+
+    .depoimento-card.alt {
+      border-top-color: var(--accent);
+    }
+
+    .depoimento-card.alt2 {
+      border-top-color: var(--secondary);
+    }
+
+    .aspas {
+      font-size: 60px;
+      line-height: 1;
+      color: var(--primary);
+      opacity: 0.15;
+      font-family: Georgia, serif;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+
+    .depoimento-texto {
+      font-style: italic;
+      font-size: 16px;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .depoimento-autor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .depoimento-info strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .depoimento-info span {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .estrelas {
+      color: var(--yellow);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    /* ===================== PLACEHOLDER DEPOIMENTO ===================== */
+    .aviso-depoimento {
+      background: rgba(108,99,255,0.07);
+      border: 2px dashed var(--primary);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aviso-depoimento p {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      color: var(--primary);
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* ===================== OFERTA / CTA ===================== */
+    .cta {
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #2D2B55 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: var(--white);
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+
+    .preco-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      max-width: 500px;
+      margin: 48px auto 0;
+      padding: 40px;
+    }
+
+    .preco-de {
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.4);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .preco-por {
+      font-family: 'Arial', sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .preco-desc {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 30px;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px 56px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(255,101,132,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: block;
+      width: 100%;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(255,101,132,0.5);
+    }
+
+    .garantia {
+      margin-top: 20px;
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: #13112A;
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      margin: 0;
+    }
+
+    /* ===================== RESPONSIVO ===================== */
+    @media (max-width: 640px) {
+      .autoridade-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .selos {
+        justify-content: center;
+      }
+
+      .beneficio-item {
+        flex-direction: column;
+      }
+
+      .preco-por {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Materiais de Alfabetização</div>
+      <h1>
+        Sua criança ainda não leu a primeira palavra sozinha —
+        <span>e você já não sabe mais o que tentar.</span>
+      </h1>
+      <p>
+        Conheça os materiais didáticos que unem neurociência, prática pedagógica e leveza
+        para transformar a alfabetização de qualquer criança — sem drama, sem decoreba e sem culpa.
+      </p>
+      <a href="#oferta" class="btn-hero">Quero garantir meu acesso agora →</a>
+      <div class="hero-sub">Acesso imediato após a compra</div>
+    </div>
+  </section>
+
+  <!-- ===== DOR ===== -->
+  <section class="dor">
+    <div class="container">
+      <span class="section-label">Identificação</span>
+      <h2>Você conhece essa sensação?</h2>
+
+      <p>
+        Você tenta de um jeito, não funciona. Tenta de outro, a criança chora.
+        Você começa a duvidar se está fazendo algo errado — ou se tem algo errado com ela.
+      </p>
+
+      <blockquote>
+        "Para os pais, a cena costuma ser assim: você chega em casa depois de um dia longo,
+        senta com seu filho para estudar um pouquinho, e em dez minutos já tem os dois frustrados."
+      </blockquote>
+
+      <p>
+        Para os professores, o peso é diferente — mas igualmente real. São 25 crianças na sala,
+        em ritmos completamente diferentes, e você precisa dar conta de todas elas com os recursos que tem.
+        As atividades que você encontra online são genéricas, rasas, ou demandam uma preparação
+        que você simplesmente não tem tempo de fazer.
+      </p>
+
+      <p>
+        A verdade que quase ninguém fala é essa: o problema raramente é a criança. E raramente é você.
+        O que falta, na maioria das vezes, é o <strong>material certo</strong> — pensado do jeito certo,
+        para o cérebro de uma criança real.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== AUTORIDADE ===== -->
+  <section class="autoridade">
+    <div class="container">
+      <span class="section-label">Quem sou eu</span>
+      <h2>Uma formação construída para isso</h2>
+      <p>
+        Dediquei minha trajetória acadêmica e profissional a entender exatamente
+        o que faz uma criança aprender a ler e escrever de verdade.
+      </p>
+
+      <div class="autoridade-card">
+        <div class="foto-placeholder">
+          Sua foto aqui
+        </div>
+        <div class="autoridade-texto">
+          <h3>[Seu Nome]</h3>
+          <div class="titulos">Pedagoga • Licenciada em Letras • Neuropsicopedagoga</div>
+          <p style="font-size: 15px; margin-bottom: 0;">
+            Sou graduada em Pedagogia e em Letras, pós-graduada em Alfabetização e Letramento
+            e também em Neuropsicopedagogia. Essa combinação me permite olhar para a alfabetização
+            entendendo ao mesmo tempo a linguagem, o processo pedagógico e o funcionamento do cérebro
+            de quem aprende. Não crio materiais por intuição — crio com base no que a ciência nos diz
+            sobre como o cérebro infantil processa, retém e se motiva a continuar aprendendo.
+          </p>
+          <div class="selos">
+            <span class="selo">Pedagogia</span>
+            <span class="selo accent">Letras</span>
+            <span class="selo">Alfabetização & Letramento</span>
+            <span class="selo secondary">Neuropsicopedagogia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUÇÃO ===== -->
+  <section class="solucao">
+    <div class="container">
+      <span class="section-label" style="color: rgba(255,255,255,0.6);">A Solução</span>
+      <h2>Do caos à alfabetização fluida — com leveza</h2>
+      <p>
+        Esses não são materiais genéricos copiados da internet. São recursos estruturados com
+        intenção pedagógica real — cada atividade existe por um motivo, cada sequência foi pensada
+        para respeitar o ritmo natural de desenvolvimento da criança.
+      </p>
+      <p>
+        Para o professor: pronto para aplicar, sem precisar improvisar. Para o pai ou mãe:
+        conduzir uma atividade com confiança, sem precisar de formação específica.
+      </p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h4>Baseado na Neurociência</h4>
+          <p>Sequências que respeitam como o cérebro infantil aprende, retém e se motiva.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h4>Pronto para Usar</h4>
+          <p>Sem adaptações. Sem horas de preparação. Você aplica e vê o resultado.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👨‍👩‍👧</div>
+          <h4>Para Pais e Professores</h4>
+          <p>Acessível para quem tem formação e para quem nunca deu uma aula na vida.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h4>Engajamento Real</h4>
+          <p>Pequenas vitórias constantes que mantêm a criança motivada para continuar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFÍCIOS ===== -->
+  <section class="beneficios">
+    <div class="container">
+      <span class="section-label">O que você ganha</span>
+      <h2>Benefícios claros, resultados reais</h2>
+
+      <div class="beneficios-lista">
+
+        <div class="beneficio-item">
+          <div class="beneficio-num">1</div>
+          <div>
+            <h4>Economia real de tempo</h4>
+            <p>Os recursos chegam prontos para uso, sem necessidade de adaptação ou pesquisa adicional. Você aplica e vê o resultado.</p>
+          </div>
+        </div>
+
+        <div class="beneficio-item">
+          <div class="beneficio-num">2</div>
+          <div>
+            <h4>Abordagem que respeita o cérebro da criança</h4>
+            <p>Atividades sequenciadas de acordo com o desenvolvimento cognitivo — o que reduz a resistência e aumenta o engajamento.</p>
+          </div>
+        </div>
+
+        <div class="beneficio-item">
+          <div class="beneficio-num">3</div>
+          <div>
+            <h4>Mais confiança para quem conduz</h4>
+            <p>Seja o professor na sala de aula ou o pai na mesa de casa — você sabe o que está fazendo e por quê está fazendo.</p>
+          </div>
+        </div>
+
+        <div class="beneficio-item">
+          <div class="beneficio-num">4</div>
+          <div>
+            <h4>Uma criança mais motivada</h4>
+            <p>Os materiais geram pequenas vitórias constantes — e cada vitória alimenta o desejo de continuar aprendendo.</p>
+          </div>
+        </div>
+
+        <div class="beneficio-item">
+          <div class="beneficio-num">5</div>
+          <div>
+            <h4>Menos estresse para todo mundo</h4>
+            <p>Quando o material é bom, a sessão de estudo para de ser um campo de batalha e começa a ser uma experiência positiva.</p>
+          </div>
+        </div>
+
+        <div class="beneficio-item">
+          <div class="beneficio-num">6</div>
+          <div>
+            <h4>Embasamento de qualidade</h4>
+            <p>Você consegue explicar para pais, coordenadores — ou para si mesmo — por que aquela abordagem funciona.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <section class="depoimentos">
+    <div class="container">
+      <span class="section-label">Prova Social</span>
+      <h2>O que dizem quem já usou</h2>
+      <p>
+        Resultados reais de pais e professores que transformaram o processo de alfabetização
+        com esses materiais.
+      </p>
+
+      <div class="depoimentos-grid">
+
+        <!-- Depoimento 1 — Exemplo -->
+        <div class="depoimento-card">
+          <div class="aspas">"</div>
+          <div class="estrelas">★★★★★</div>
+          <p class="depoimento-texto">
+            "Antes eu passava horas tentando explicar para minha filha e ela só chorava.
+            Com esses materiais, em duas semanas ela já estava lendo sílabas sozinha.
+            Não acreditei quando aconteceu."
+          </p>
+          <div class="depoimento-autor">
+            <div class="avatar">M</div>
+            <div class="depoimento-info">
+              <strong>Maria Clara S.</strong>
+              <span>Mãe de aluna, 6 anos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 — Exemplo -->
+        <div class="depoimento-card alt">
+          <div class="aspas" style="color: var(--accent);">"</div>
+          <div class="estrelas">★★★★★</div>
+          <p class="depoimento-texto">
+            "Como professora de 1º ano, eu precisava de algo prático e bem estruturado.
+            Esses materiais salvaram meu planejamento. Meus alunos engajam de um jeito que eu
+            não via há muito tempo."
+          </p>
+          <div class="depoimento-autor">
+            <div class="avatar" style="background: linear-gradient(135deg, var(--accent), #2D9E7F);">A</div>
+            <div class="depoimento-info">
+              <strong>Ana Paula R.</strong>
+              <span>Professora do 1º ano</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder para depoimento real -->
+        <div class="depoimento-card aviso-depoimento">
+          <div style="font-size: 32px; margin-bottom: 12px;">📝</div>
+          <p>Substitua este card pelo seu próximo depoimento real!</p>
+          <p style="font-weight: normal; font-size: 12px; margin-top: 8px; color: var(--text-light);">
+            Peça para seus clientes: qual era a situação antes, o que mudou e o resultado concreto.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA / OFERTA ===== -->
+  <section class="cta" id="oferta">
+    <div class="container">
+      <span class="section-label" style="color: rgba(255,255,255,0.5);">Oferta</span>
+      <h2>Você já passou tempo demais tentando descobrir o caminho sozinho.</h2>
+      <p>
+        Seu filho merece aprender com leveza. Seus alunos merecem um material que respeita como
+        eles aprendem. E você merece a tranquilidade de saber que está usando algo que funciona.
+      </p>
+      <p>
+        Os materiais estão disponíveis agora, e o acesso é imediato.
+        Não espere a próxima reunião de pais. Não espere o próximo bimestre.
+        A criança está crescendo agora — e cada semana importa.
+      </p>
+
+      <div class="preco-box">
+        <div class="preco-de">De R$ 197,00</div>
+        <div class="preco-por">R$ 97,00</div>
+        <div class="preco-desc">ou em até 12x no cartão</div>
+        <a href="#" class="btn-cta">Começar agora →</a>
+        <div class="garantia">🔒 Compra 100% segura · Acesso imediato</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>
+      © 2025 [Seu Nome] — Pedagoga, Licenciada em Letras, Pós-graduada em Alfabetização,
+      Letramento e Neuropsicopedagogia. Todos os direitos reservados.
+    </p>
+  </footer>
+
+</body>
+</html>
